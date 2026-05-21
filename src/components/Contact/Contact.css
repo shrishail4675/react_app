@@ -1,0 +1,176 @@
+/* Page */
+.contact-page {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hero */
+.contact-hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #f5f7ff, #e6ecff);
+}
+
+.contact-hero h1 {
+  font-size: 40px;
+  color: #1e2a78;
+}
+
+.contact-hero p {
+  color: #555;
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+/* Contact Cards */
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 60px 100px;
+  gap: 40px;
+}
+
+.contact-card {
+  text-align: center;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+}
+
+.contact-icon {
+  font-size: 30px;
+  color: #1e2a78;
+  margin-bottom: 10px;
+}
+
+/* Form */
+.contact-form-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.contact-form button {
+  background: #1e2a78;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #16205c;
+}
+
+/* COMPANY INFO SECTION */
+.company-info {
+  background: #0f172a;
+  color: white;
+  padding: 60px 40px;
+}
+
+.company-container {
+  display: flex;
+  justify-content: flex-start; /* changed */
+  align-items: flex-start; /* ensure top-left alignment */
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+  text-align: left; /* force left text */
+}
+
+.company-about {
+  flex: 1;
+  min-width: 250px;
+}
+
+.company-about h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.company-about p {
+  color: #cbd5f5;
+  line-height: 1.6;
+}
+
+.company-contact,
+.company-services {
+  flex: 1;
+  min-width: 220px;
+}
+
+.company-contact h4,
+.company-services h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.company-contact p,
+.company-services p {
+  margin-bottom: 8px;
+  color: #cbd5f5;
+}
+
+.company-contact p {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.icon {
+  color: #38bdf8;
+  margin-top: 4px;
+  min-width: 16px;
+}
+
+.company-links {
+  flex: 1;
+  min-width: 200px;
+}
+
+.company-links h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.company-links a {
+  display: block;
+  color: #cbd5f5;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: 0.3s;
+}
+
+.company-links a:hover {
+  color: #38bdf8;
+  padding-left: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 40px 20px;
+  }
+}

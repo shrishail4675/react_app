@@ -1,0 +1,197 @@
+/* GENERAL */
+.service-page {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* HERO */
+.professional-hero {
+  height: 90vh;
+
+  /* LIGHT LEFT GRADIENT */
+  background:
+    linear-gradient(
+      to right,
+      rgba(255,255,255,0.9) 35%,
+      rgba(255,255,255,0.3) 70%
+    ),
+    url("../../assets/Service_hero_image.png") center/cover no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 80px;
+}
+
+/* TEXT */
+.hero-content {
+  max-width: 600px;
+  color: #1a237e;
+  animation: fadeIn 1s ease;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* BUTTON */
+.cta-btn {
+  background: #1a237e;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  background: #0d133d;
+}
+
+/* SECTIONS */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  color: #1a237e;
+  margin-bottom: 20px;
+}
+
+/* CARDS */
+.tech-cards,
+.benefit-cards,
+.process-cards,
+.testimonial-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.tech-card,
+.benefit-card,
+.process-card,
+.testimonial-card {
+  background: #f5f7ff;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.tech-card:hover,
+.benefit-card:hover,
+.process-card:hover {
+  transform: translateY(-5px);
+}
+
+/* PROCESS */
+.process-card img {
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+/* COMPANY INFO */
+
+/* COMPANY INFO - UNTOUCHED */
+.company-info {
+  background: #0f172a;
+  color: white;
+  padding: 60px 8%;
+}
+
+.company-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+.company-about,
+.company-contact,
+.company-services,
+.company-links {
+  flex: 1;
+  min-width: 220px;
+}
+
+.company-contact p,
+.company-services p {
+  color: #cbd5f5;
+}
+
+.company-links a {
+  display: block;
+  color: #cbd5f5;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.company-links a:hover {
+  color: #38bdf8;
+}
+
+.icon {
+  color: #38bdf8;
+  margin-right: 8px;
+}
+
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .professional-hero {
+    justify-content: center;
+    padding-left: 20px;
+    text-align: center;
+    height: 70vh;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .cta-btn {
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .professional-hero {
+    height: 60vh;
+  }
+
+  .hero-content h1 {
+    font-size: 1.7rem;
+  }
+}
