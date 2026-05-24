@@ -1,7 +1,7 @@
 import React from "react";
 import "./About.css";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import heroImg from "../../assets/Service_hero_image.png";
+import heroImg from "../../assets/AboutImg.png";
 import companyImg from "../../assets/about-company.png";
 
 function About() {
@@ -16,11 +16,11 @@ function About() {
           <h1 className="hero-title">About Us</h1>
           <p className="hero-subtitle">
             Infotech Minds is a leading IT solutions company delivering
-            innovative, scalable, and reliable digital services.
+            innovative, <br></br>scalable, and reliable digital services.
           </p>
           <p className="hero-subtitle">
-            We help businesses grow with cutting-edge technology and smart
-            solutions tailored to their needs.
+            We help businesses grow with cutting-edge technology<br></br> and
+            smart solutions tailored to their needs.
           </p>
         </div>
       </section>
@@ -77,18 +77,48 @@ function About() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="why-choose">
-        <h2>Why Choose Infotech Minds</h2>
+     <section className="why-choose">
+  <div className="why-tag">Our Strengths</div>
+  <h2>Why Choose Infotech Minds</h2>
+  <p className="why-subtitle">Everything you need to build, scale, and grow your digital product</p>
 
-        <div className="why-cards">
-          <div className="why-card">✔ Experienced Development Team</div>
-          <div className="why-card">✔ Modern Technologies</div>
-          <div className="why-card">✔ Scalable & Secure Applications</div>
-          <div className="why-card">✔ End-to-End Development</div>
-          <div className="why-card">✔ Maintenance & Support</div>
-          <div className="why-card">✔ Affordable Pricing</div>
-        </div>
-      </section>
+  <div className="why-cards">
+    <div className="why-card">
+      <div className="why-icon">👥</div>
+      <div className="why-label">Experienced Development Team</div>
+    </div>
+    <div className="why-card">
+      <div className="why-icon">💻</div>
+      <div className="why-label">Modern Technologies</div>
+    </div>
+    <div className="why-card">
+      <div className="why-icon">🛡️</div>
+      <div className="why-label">Scalable & Secure Applications</div>
+    </div>
+    <div className="why-card">
+      <div className="why-icon">⚙️</div>
+      <div className="why-label">End-to-End Development</div>
+    </div>
+    <div className="why-card">
+      <div className="why-icon">🔧</div>
+      <div className="why-label">Maintenance & Support</div>
+    </div>
+    <div className="why-card">
+      <div className="why-icon">💰</div>
+      <div className="why-label">Affordable Pricing</div>
+    </div>
+  </div>
+
+  {/* <div className="why-bottom">
+    <div className="why-stat"><strong>10+</strong><span>Years experience</span></div>
+    <div className="why-divider" />
+    <div className="why-stat"><strong>500+</strong><span>Projects delivered</span></div>
+    <div className="why-divider" />
+    <div className="why-stat"><strong>98%</strong><span>Client satisfaction</span></div>
+    <div className="why-divider" />
+    <div className="why-stat"><strong>50+</strong><span>Team members</span></div>
+  </div> */}
+</section>
 
       {/* TECHNOLOGIES */}
       <section className="technologies-section">
@@ -115,28 +145,28 @@ function About() {
           ))}
         </div>
 
-       {/* Mobile Slider */}
-<div className="tech-slider mobile-tech">
-  <div className="tech-track">
-    {[
-      "Java",
-      "Python",
-      "React",
-      "Node",
-      "Spring",
-      "MySQL",
-      "Oracle",
-      "Docker",
-      "Jenkins",
-      "AWS",
-    ].map((tech) => (
-      <div className="tech-card" key={tech}>
-        <img src={require(`../../assets/${tech}.png`)} alt={tech} />
-        <p>{tech}</p>
-      </div>
-    ))}
-  </div>
-</div>
+        {/* Mobile Slider */}
+        <div className="tech-slider mobile-tech">
+          <div className="tech-track">
+            {[
+              "Java",
+              "Python",
+              "React",
+              "Node",
+              "Spring",
+              "MySQL",
+              "Oracle",
+              "Docker",
+              "Jenkins",
+              "AWS",
+            ].map((tech) => (
+              <div className="tech-card" key={tech}>
+                <img src={require(`../../assets/${tech}.png`)} alt={tech} />
+                <p>{tech}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* COMPANY INFO */}

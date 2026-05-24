@@ -2,6 +2,9 @@ import React from "react";
 import "./MainBody.css";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import aboutImg from "../../assets/about-company.png";
+import { Link } from "react-router-dom";
+import DevopsImage from "../../assets/DevopsImage.png";
+import AIMl from "../../assets/Ai-Ml.png";
 
 function Body() {
   return (
@@ -14,13 +17,15 @@ function Body() {
           </h1>
 
           <p className="fade-up delay-2">
-            At Infotech Minds, we deliver innovative, scalable, and secure
-            IT solutions that help businesses grow faster in the digital world.
+            At Infotech Minds, we deliver innovative, scalable, and secure IT
+            solutions that help businesses grow faster in the digital world.
           </p>
 
           <div className="hero-buttons fade-up delay-3">
             <button className="btn primary">Get Started</button>
-            <button className="btn secondary">Learn More</button>
+            <Link to="/contact">
+              <button className="btn secondary">Contact Us</button>
+            </Link>
           </div>
         </div>
       </section>
@@ -31,8 +36,8 @@ function Body() {
           <h2>Our Company</h2>
 
           <p>
-            Infotech Minds is a leading IT solutions provider specializing
-            in modern software development, enterprise applications, and digital
+            Infotech Minds is a leading IT solutions provider specializing in
+            modern software development, enterprise applications, and digital
             transformation services.
           </p>
 
@@ -62,33 +67,73 @@ function Body() {
       {/* SERVICES */}
       <section className="services">
         <h2>Our Services</h2>
+
         <p className="section-subtitle">
           We provide a wide range of IT services to help your business grow.
         </p>
 
         <div className="service-cards">
-          <div className="service-card">
-            <h3>Website design & Development</h3>
-            <p>Modern, fast and scalable websites.</p>
-          </div>
+          {/* WEBSITE DEVELOPMENT */}
+          <Link to="/services/web-development" className="service-link">
+            <div className="service-card">
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f"
+                alt="Website Development"
+              />
 
-          <div className="service-card">
-            <h3>Mobile App Development</h3>
-            <p>Custom enterprise software solutions.</p>
-          </div>
+              <h3>Website Design & Development</h3>
 
-          <div className="service-card">
-            <h3>API Development</h3>
-            <p>Secure REST APIs and integrations.</p>
-          </div>
+              <p>
+                Responsive, modern, and high-performance websites built for
+                business growth.
+              </p>
+            </div>
+          </Link>
 
-          <div className="service-card">
-            <h3>Artificial Intelligence & Machine Learning</h3>
-            <p>
-              Smart AI solutions, automation, predictive analytics, and
-              intelligent business systems.
-            </p>
-          </div>
+          {/* MOBILE APP */}
+          <Link to="/services/mobile-apps" className="service-link">
+            <div className="service-card">
+              <img
+                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c"
+                alt="Mobile App Development"
+              />
+
+              <h3>Mobile App Development</h3>
+
+              <p>
+                Android and iOS mobile applications with modern UI, high
+                performance, and seamless user experience.
+              </p>
+            </div>
+          </Link>
+
+          {/* DEVOPS & CI/CD */}
+          <Link to="/services/devops" className="service-link">
+            <div className="service-card">
+              <img src={DevopsImage} alt="DevOps CI/CD" />
+
+              <h3>DevOps & CI/CD</h3>
+
+              <p>
+                Automated deployment pipelines, cloud infrastructure, secure
+                automation, and faster software delivery.
+              </p>
+            </div>
+          </Link>
+
+          {/* AI ML */}
+          <Link to="/services/ai-ml" className="service-link">
+            <div className="service-card">
+              <img src={AIMl} alt="AI ML" />
+
+              <h3>Artificial Intelligence & Machine Learning</h3>
+
+              <p>
+                Smart AI solutions, automation, predictive analytics, and
+                intelligent business systems.
+              </p>
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -115,11 +160,12 @@ function Body() {
 
         <div className="tech-list">
           <span>Java</span>
-          <span>Spring Boot</span>
+          <span>Python</span>
           <span>React</span>
           <span>Angular</span>
           <span>Node.js</span>
           <span>MySQL</span>
+          <span>Oracle</span>
           <span>MongoDB</span>
           <span>AWS</span>
           <span>Docker</span>
