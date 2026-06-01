@@ -4,6 +4,7 @@ import MainBody from "./components/MainBody/MainBody";
 import Footer from "./components/Footer/Footer";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
+import CompanyInfo from "./components/About/CompanyInfo";
 
 // Service Pages
 import WebDevelopment from "./components/Services/WebDevelopment";
@@ -33,7 +34,7 @@ function App() {
         <Route path="/services/ai-ml" element={<ArtificialIntelligence />} />
         <Route path="/services/maintenance" element={<Maintenance />} />
       </Routes>
-
+      <CompanyInfo />
       <Footer />
     </div>
   );

@@ -1,34 +1,70 @@
 import React from "react";
-import "./Contact.css";
+import { useEffect, useRef, useState } from "react";
+
 import {
   FaPhone,
   FaEnvelope,
-  FaMapMarkerAlt,
   FaLaptopCode,
   FaHeadset,
   FaShieldAlt,
-  FaClock,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
 // import { FaEnvelope, FaPhone } from "react-icons/fa";
 
 function Contact() {
+
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const elements = document.querySelectorAll(
+      "h1, h2, h3, p, img, .service-card, .tech-list, .about-points, .company-links, .company-services, .company-contact, .testimonial-card"
+    );
+
+    elements.forEach((el) => el.classList.add("fade-up"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("show", entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+
   return (
     <div className="contact-page">
-      {/* Hero Section */}
-      <section className="contact-hero">
-        <h1>Contact Us</h1>
-        <p>
-          Whether you need a website, mobile app, DevOps support, or IT
-          consulting — our team is here to help.
-        </p>
-      </section>
 
       {/* Contact Form (Optional but recommended) */}
-      <section className="contact-form-section">
+      <section className="contact-form-section" ref={sectionRef}>
+        <h2 className="mt-5 pt-5">CONTACT US</h2>
         <div className="contact-container">
-          <div className="contact-info">
-            <span className="contact-tag">CONTACT US</span>
+          <div className={`contact-info ${visible ? "show-left" : ""}`}>
+
             <h2>Let’s Build Something Amazing Together</h2>
             <p>
               Have a project idea or need IT solutions for your business? Send
@@ -48,7 +84,7 @@ function Contact() {
             </div>
           </div>
 
-          <form className="contact-form">
+          <form className={`contact-form ${visible ? "show-right" : ""}`}>
             <input type="text" placeholder="Your Name" required />
             <input type="email" placeholder="Your Email" required />
             <textarea placeholder="Your Message" rows="5" required></textarea>
@@ -59,9 +95,8 @@ function Contact() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="why-choose">
+      <section className="why-choose delay-1">
         <div className="section-header">
-          <span className="section-tag">WHY CHOOSE US</span>
           <h2>Why Businesses Trust Infotech Minds</h2>
         </div>
 
@@ -98,7 +133,6 @@ function Contact() {
       {/* FAQ */}
       <section className="faq-section">
         <div className="section-header">
-          <span className="section-tag">FAQ</span>
           <h2>Frequently Asked Questions</h2>
         </div>
 
@@ -125,54 +159,6 @@ function Contact() {
               Absolutely. We specialize in custom web, mobile, and enterprise
               software solutions.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* COMPANY INFO (Same as Services page) */}
-      <section className="company-info">
-        <div className="company-container">
-          <div className="company-about">
-            <h3>Infotech Minds</h3>
-            <p>
-              Founded in 2020, we deliver innovative and reliable software
-              development and IT consulting solutions that help businesses grow
-              through technology and creativity.
-            </p>
-          </div>
-
-          <div className="company-contact">
-            <h4>Information</h4>
-
-            <p>
-              <FaPhone className="icon" /> +91 77588 27146
-            </p>
-
-            <p>
-              <FaEnvelope className="icon" /> contact@infotechmindslab.com
-            </p>
-
-            <p>
-              <FaMapMarkerAlt className="icon" />
-              FLAT NO. 603, ANUKUR APT, GOTHIVALI, NAVI MUMBAI 400 701.
-            </p>
-          </div>
-
-          <div className="company-services">
-            <h4>Services</h4>
-            <p>Website Development</p>
-            <p>Mobile Application Development</p>
-            <p>DevOps & CI/CD</p>
-            <p>UI/UX & Graphic Design</p>
-            <p>Maintenance & Support</p>
-          </div>
-
-          <div className="company-links">
-            <h4>Quick Links</h4>
-            <a href="/">Home</a>
-            <a href="/about">About Us</a>
-            <a href="/services">Services</a>
-            <a href="/contact">Contact</a>
           </div>
         </div>
       </section>

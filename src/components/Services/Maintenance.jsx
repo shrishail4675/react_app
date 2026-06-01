@@ -3,15 +3,37 @@ import "./ServicePage.css";
 import process1 from "../../assets/process1.png";
 import process2 from "../../assets/process2.png";
 import process3 from "../../assets/process3.png";
+import { useEffect } from "react";
 
 import {
-  FaPhone,
-  FaEnvelope,
-  FaMapMarkerAlt,
   FaCheckCircle,
 } from "react-icons/fa";
 
 function Maintenance() {
+
+  useEffect(() => {
+    const elements = document.querySelectorAll(
+      "h1, h2, h3, p, img, .service-card, .tech-card, .about-points, .company-links, .testimonial-card, .process-card, .benefit-card"
+    );
+
+    elements.forEach((el) => el.classList.add("fade-up"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("show", entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="service-page">
       {/* HERO SECTION */}
@@ -139,48 +161,6 @@ function Maintenance() {
         </div>
       </section>
 
-      {/* COMPANY INFO */}
-      <section className="company-info">
-        <div className="company-container">
-          <div className="company-about">
-            <h3>Infotech Minds</h3>
-            <p>
-              We deliver innovative IT solutions that help businesses grow
-              through technology and creativity.
-            </p>
-          </div>
-
-          <div className="company-contact">
-            <h4>Information</h4>
-            <p>
-              <FaPhone className="icon" /> +91 77588 27146
-            </p>
-            <p>
-              <FaEnvelope className="icon" /> contact@infotechmindslab.com
-            </p>
-            <p>
-              <FaMapMarkerAlt className="icon" /> Navi Mumbai, India
-            </p>
-          </div>
-
-          <div className="company-services">
-            <h4>Services</h4>
-            <p>Website Development</p>
-            <p>Mobile Application Development</p>
-            <p>DevOps & CI/CD</p>
-            <p>UI/UX & Graphic Design</p>
-            <p>Maintenance & Support</p>
-          </div>
-
-          <div className="company-links">
-            <h4>Quick Links</h4>
-            <a href="/">Home</a>
-            <a href="/about">About Us</a>
-            <a href="/services">Services</a>
-            <a href="/contact">Contact</a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

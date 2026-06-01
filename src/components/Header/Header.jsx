@@ -1,85 +1,194 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
+
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
+
 import "./Header.css";
 import logo from "../../assets/logo.png";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Header() {
+
+  // MOBILE NAVBAR STATE
+  const [expanded, setExpanded] = useState(false);
+
+  // DROPDOWN STATE
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  // CLOSE NAVBAR AFTER CLICK
+  const closeNavbar = () => {
+    setExpanded(false);
+  };
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <Navbar expand="lg" >
+    <Navbar expand="lg" expanded={expanded} className={`header ${scrolled ? "scrolled" : ""}`}>
       <Container fluid>
-        <Navbar.Brand as={Link} to="/">
+
+        {/* LOGO */}
+        <Navbar.Brand as={Link} to="/" onClick={closeNavbar}>
           <img src={logo} alt="Logo" className="logo-img height-100" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="offcanvasNavbar" />
+
+        {/* HAMBURGER */}
+        <Navbar.Toggle
+          aria-controls="offcanvasNavbar"
+          onClick={() => setExpanded(!expanded)}
+        />
+
+        {/* OFFCANVAS */}
         <Navbar.Offcanvas
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
           placement="end"
+          show={expanded}
+          onHide={() => setExpanded(false)}
         >
-          <Offcanvas.Header closeButton>
+          <Offcanvas.Header closeButton closeVariant="black">
             <Offcanvas.Title id="offcanvasNavbarLabel">
               InfotechMinds
             </Offcanvas.Title>
           </Offcanvas.Header>
-          <Offcanvas.Body>
-            <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Nav.Link as={Link} to="/">
+
+          <Offcanvas.Body className="nav-menu-margin">
+
+            <Nav className="justify-content-end flex-grow-1">
+
+              {/* HOME */}
+              <Nav.Link
+                className="nav-font-color me-5"
+                as={Link}
+                to="/"
+                onClick={closeNavbar}
+              >
                 Home
               </Nav.Link>
 
-              <Nav.Link as={Link} to="/about">
-                About
-              </Nav.Link>
-
               {/* SERVICES DROPDOWN */}
-              <NavDropdown title="Services" id="offcanvasNavbarDropdown">
-                <NavDropdown.Item as={Link} to="/services/web-development">
+              <NavDropdown className="me-5"
+                title={<span className="nav-font-color">Services</span>}
+                id="offcanvasNavbarDropdown"
+                show={showDropdown}
+
+                // HOVER FOR DESKTOP
+                onMouseEnter={() => {
+                  if (window.innerWidth > 991) {
+                    setShowDropdown(true);
+                  }
+                }}
+
+                onMouseLeave={() => {
+                  if (window.innerWidth > 991) {
+                    setShowDropdown(false);
+                  }
+                }}
+
+                // CLICK FOR MOBILE
+                onClick={() => {
+                  if (window.innerWidth <= 991) {
+                    setShowDropdown(!showDropdown);
+                  }
+                }}
+              >
+
+                <NavDropdown.Item
+                  as={Link}
+                  className="nav-font-color"
+                  to="/services/web-development"
+                  onClick={closeNavbar}
+                >
                   Website Development
                 </NavDropdown.Item>
 
-                <NavDropdown.Item as={Link} to="/services/mobile-apps">
+                <NavDropdown.Item
+                  as={Link}
+                  className="nav-font-color"
+                  to="/services/mobile-apps"
+                  onClick={closeNavbar}
+                >
                   Mobile App Development
                 </NavDropdown.Item>
 
-                <NavDropdown.Item as={Link} to="/services/devops">
+                <NavDropdown.Item
+                  as={Link}
+                  className="nav-font-color"
+                  to="/services/devops"
+                  onClick={closeNavbar}
+                >
                   DevOps & CI/CD
                 </NavDropdown.Item>
 
-                <NavDropdown.Item as={Link} to="/services/ui-ux">
+                <NavDropdown.Item
+                  as={Link}
+                  className="nav-font-color"
+                  to="/services/ui-ux"
+                  onClick={closeNavbar}
+                >
                   UI/UX & Graphic Design
                 </NavDropdown.Item>
 
-                <NavDropdown.Item as={Link} to="/services/ai-ml">
+                <NavDropdown.Item
+                  as={Link}
+                  className="nav-font-color"
+                  to="/services/ai-ml"
+                  onClick={closeNavbar}
+                >
                   Artificial Intelligence & Machine Learning
                 </NavDropdown.Item>
 
-                <NavDropdown.Item as={Link} to="/services/maintenance">
+                <NavDropdown.Item
+                  as={Link}
+                  className="nav-font-color"
+                  to="/services/maintenance"
+                  onClick={closeNavbar}
+                >
                   Maintenance & Support
                 </NavDropdown.Item>
+
               </NavDropdown>
 
-              <Nav.Link as={Link} to="/contact">
+              {/* ABOUT */}
+              <Nav.Link
+                className="nav-font-color me-5"
+                as={Link}
+                to="/about"
+                onClick={closeNavbar}
+              >
+                About
+              </Nav.Link>
+
+
+
+              {/* CONTACT */}
+              <Nav.Link
+                as={Link}
+                className="nav-font-color me-5"
+                to="/contact"
+                onClick={closeNavbar}
+              >
                 Contact
               </Nav.Link>
+
             </Nav>
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2 h-75"
-                aria-label="Search"
-              />
-              <Button className="d-flex align-items-center justify-content-center h-75 btn secondary">Search</Button>
-            </Form>
+
           </Offcanvas.Body>
         </Navbar.Offcanvas>
+
       </Container>
     </Navbar>
   );

@@ -1,19 +1,40 @@
 import React from "react";
 import "./ServicePage.css";
+import { useEffect } from "react";
 
-import heroImg from "../../assets/mobile-apps.png";
 import process1 from "../../assets/process1.png";
 import process2 from "../../assets/process2.png";
 import process3 from "../../assets/process3.png";
 
 import {
-  FaPhone,
-  FaEnvelope,
-  FaMapMarkerAlt,
   FaCheckCircle,
 } from "react-icons/fa";
 
 function MobileApps() {
+
+  useEffect(() => {
+    const elements = document.querySelectorAll(
+      "h1, h2, h3, p, img, .service-card, .tech-card, .about-points, .company-links, .company-services, .company-contact, .testimonial-card, .process-card, .benefit-card"
+    );
+
+    elements.forEach((el) => el.classList.add("fade-up"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("show", entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="service-page">
       {/* HERO SECTION */}
@@ -157,48 +178,6 @@ function MobileApps() {
           <div className="testimonial-card">
             "Excellent support and smooth app performance. Highly recommended!"
             – Priya
-          </div>
-        </div>
-      </section>
-
-      {/* COMPANY INFO */}
-      <section className="company-info">
-        <div className="company-container">
-          <div className="company-about">
-            <h3>Infotech Minds</h3>
-            <p>
-              We deliver innovative IT solutions that help businesses grow
-              through technology and creativity.
-            </p>
-          </div>
-
-          <div className="company-contact">
-            <h4>Information</h4>
-            <p>
-              <FaPhone /> +91 77588 27146
-            </p>
-            <p>
-              <FaEnvelope /> contact@infotechmindslab.com
-            </p>
-            <p>
-              <FaMapMarkerAlt /> Navi Mumbai, India
-            </p>
-          </div>
-
-          <div className="company-services">
-            <h4>Services</h4>
-            <p>Website Development</p>
-            <p>Mobile Apps</p>
-            <p>DevOps</p>
-            <p>UI/UX</p>
-          </div>
-
-          <div className="company-links">
-            <h4>Quick Links</h4>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/services">Services</a>
-            <a href="/contact">Contact</a>
           </div>
         </div>
       </section>

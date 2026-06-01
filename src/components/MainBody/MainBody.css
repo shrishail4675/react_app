@@ -5,8 +5,8 @@
 
 /* ================= HERO ================= */
 .hero {
-  min-height: 90vh;
-  background: linear-gradient(rgba(255,255,255,0.8), rgba(230,235,255,0.9)),
+  min-height: 100vh;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(230, 235, 255, 0.9)),
     url("../../assets/hero-bg.png");
   background-size: cover;
   background-position: center right;
@@ -47,8 +47,9 @@
 }
 
 .btn {
-  padding: 14px 28px;
+  padding: 6px 10px;
   border-radius: 6px;
+  margin-left: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -62,6 +63,7 @@
 .primary:hover {
   transform: translateY(-4px);
   background: #0d1b5e;
+  color: white;
 }
 
 .secondary {
@@ -77,244 +79,19 @@
 }
 
 /* ================= ANIMATION ================= */
-.fade-up {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeUp 1s ease forwards;
+
+.delay-1 {
+  animation-delay: 0.3s;
 }
 
-.delay-1 { animation-delay: 0.3s; }
-.delay-2 { animation-delay: 0.6s; }
-.delay-3 { animation-delay: 0.9s; }
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ================= ABOUT ================= */
-.about-company {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 80px;
-  gap: 50px;
-  background: #f9fbff;
-  flex-wrap: wrap;
-}
-
-.about-left {
-  flex: 1;
-  min-width: 280px;
-}
-
-.about-left h2 {
-  font-size: 36px;
-  color: #1a237e;
-}
-
-.about-left p {
-  margin-top: 15px;
-  color: #555;
-  line-height: 1.6;
-}
-
-.about-points {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  color: #1a237e;
-  font-weight: 500;
-}
-
-/* IMAGE */
-.about-right {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.about-right img {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 15px;
-}
-
-/* ================= SERVICES ================= */
-/* SERVICES SECTION */
-.services {
-  padding: 90px 20px;
-  background: linear-gradient(to right, #f8fbff, #eef4ff);
-  text-align: center;
-  overflow: hidden;
-}
-
-/* HEADING ANIMATION */
-.services h2 {
-  font-size: 42px;
-  color: #111827;
-  margin-bottom: 15px;
-  animation: fadeDown 1s ease;
-}
-
-.section-subtitle {
-  color: #6b7280;
-  font-size: 18px;
-  margin-bottom: 60px;
-  animation: fadeUp 1.2s ease;
-}
-
-/* CARD LAYOUT */
-.service-cards {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-/* CARD DESIGN */
-.service-card {
-  width: 300px;
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  transition: all 0.4s ease;
-  animation: cardAppear 1s ease;
-  cursor: pointer;
-}
-
-/* CARD HOVER EFFECT */
-.service-card:hover {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-}
-
-/* GLOW EFFECT */
-.service-card::before {
-  content: "";
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.4),
-    transparent
-  );
-  transform: rotate(25deg);
-  transition: 0.8s;
-}
-
-.service-card:hover::before {
-  top: 100%;
-  left: 100%;
-}
-
-/* IMAGE EFFECT */
-.service-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.service-card:hover img {
-  transform: scale(1.1);
-}
-
-/* TEXT */
-.service-card h3 {
-  font-size: 23px;
-  color: #111827;
-  padding: 22px 20px 10px;
-}
-
-.service-card p {
-  color: #6b7280;
-  padding: 0 20px 25px;
-  line-height: 1.6;
-  font-size: 15px;
-}
-
-/* FLOATING ANIMATION */
-.service-card:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
-.service-card:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-.service-card:nth-child(3) {
+.delay-2 {
   animation-delay: 0.6s;
 }
 
-.service-card:nth-child(4) {
-  animation-delay: 0.8s;
+.delay-3 {
+  animation-delay: 0.9s;
 }
 
-.service-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-/* KEYFRAMES */
-
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes cardAppear {
-  from {
-    opacity: 0;
-    transform: translateY(80px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .services h2 {
-    font-size: 32px;
-  }
-
-  .service-card {
-    width: 100%;
-    max-width: 340px;
-  }
-}
 /* ================= WHY US ================= */
 .why-us {
   padding: 70px;
@@ -336,7 +113,7 @@
 
 /* ================= TECH ================= */
 .tech-stack {
-  padding: 70px;
+  padding: 40px;
   text-align: center;
 }
 
@@ -353,94 +130,35 @@
   border-radius: 20px;
 }
 
-/* ================= FOOTER ================= */
-.company-info {
-  background: #0f172a;
-  color: white;
-  padding: 60px 20px;
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.company-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
+/* Visible state */
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.company-container > div {
-  flex: 1;
-  min-width: 220px;
+/* Optional delays */
+.delay-1 {
+  transition-delay: 0.2s;
 }
 
-/* ================= TABLET ================= */
-@media (max-width: 1024px) {
-  .hero {
-    padding: 60px 40px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-content h1 {
-    font-size: 36px;
-  }
-
-  .about-company {
-    padding: 60px 30px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .why-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.delay-2 {
+  transition-delay: 0.4s;
 }
 
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .hero {
-    padding: 40px 20px;
-    height: auto;
-    text-align: center;
-  }
+.delay-3 {
+  transition-delay: 0.6s;
+}
 
-  .hero-content h1 {
-    font-size: 28px;
-  }
+.delay-4 {
+  transition-delay: 0.8s;
+}
 
-  .hero-content p {
-    font-size: 16px;
-  }
-
-  .hero-buttons {
-    justify-content: center;
-  }
-
-  .about-company {
-    flex-direction: column;
-    padding: 40px 20px;
-  }
-
-  .about-left h2 {
-    font-size: 28px;
-  }
-
-  .services {
-    padding: 50px 20px;
-  }
-
-  .service-card {
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .why-us {
-    padding: 50px 20px;
-  }
-
-  .why-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .tech-stack {
-    padding: 50px 20px;
-  }
+body {
+  overflow-x: hidden;
 }
